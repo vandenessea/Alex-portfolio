@@ -4,7 +4,7 @@ import About from "./componets/About";
 import SinglePost from "./componets/SinglePost";
 import Post from "./componets/Post";
 import Project from "./componets/Project";
-
+//importing all routes
 
 
 function App() {
