@@ -27,9 +27,9 @@ export default function NavBar () {
                         About Me!
                     </NavLink>
                 </nav>
-                <div>
-                    <SocialIcon url="" className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}} />
-                    <SocialIcon url="" className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}} />
+                <div className="inline-flex py-3 px-3 my-6">
+                    <SocialIcon url="https://github.com/vandenessea" className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}} />
+                    <SocialIcon url="https://www.linkedin.com/in/alexander-vandenesse-063a20b7?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BbUP5yapbQtafJb32n3Exaw%3D%3D" className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}} />
                     <SocialIcon url="" className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}} />
                 </div>
             </div>
