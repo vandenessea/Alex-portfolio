@@ -4,8 +4,9 @@
 
 
 .cursive {
-  font-family: "Amatic SC", cursive;
+  font-family: "Papyrus", cursive;
   font-weight: 700;
+  
 
 }
 
@@ -16,7 +17,7 @@
 }
 
 .home-name {
-  font-size: 150px;
+  font-size: 100px;
 }
 
 
