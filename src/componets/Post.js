@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from "react";     //setting state
 import { Link } from "react-router-dom";
-import sanityClient from '@sanity/client';
+import sanityClient from "../client.js";
 
 
-export default function Post () {
+export default function Post() {
     const [postData, setPost] = useState(null);
 
     useEffect(() => {
         sanityClient
-            .fetch(`*[_type == "post"] {
+            .fetch(
+                `*[_type == "post"] {
                 title,
                 slug,
                 mainImage{
-                    asset->{
+                    asset=>{
                         _id,
                         url
                     },
                     alt
                 }
 
-            }`)
-            .then((data) => setPost(data))
-            .catch(console.error);
-    })
+            }`
+        )
+        .then((data) => setPost(data))
+        .catch(console.error);
+    }, []);//correct
     
     return (
         <main className="bg-green-100 min-h-screen p-12">
@@ -30,14 +32,14 @@ export default function Post () {
             <h1 className="text-5xl flex justify-center cursive"> Blog Post Page</h1>
             <h2 className="text-lg text-gray-600 flex justify-center mb-12">Welcome to my page of blog posts</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {postData && postData.map((post, index) => (//map over all the data below
+            {postData && postData.map((post, index) => (//map over all the data below that is click-a-ble
                 <article>
-                    <Link to={"/post/" + postData.slug.current} key={postData.slug.current}>
+                    <Link to={"/post/" + post.slug.current} key={post.slug.current}>
                         <span className="block h-64 relative rounded shadow leading-snug bg-white border-l-8 border-green-400" 
                         key= {index}>
                             <img 
-                            src={postData.mainImage.asset.url}
-                            alt={postData.mainImage.alt}
+                            src={post.mainImage.asset.url}//fixed post.data to post
+                            alt={post.mainImage.alt}//fixed post.data to post
                             className="w-full h-full rounded-r object-cover absolute"
                             />
                             <span className="block relative h-full flex justify-end items-end pr-4 pb-4">
